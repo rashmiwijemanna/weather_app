@@ -171,12 +171,12 @@ h1,h3 {
     margin: 3em 0;
 }
 
-.cities {
+.city {
     display: block;
     cursor: pointer;
 }
 
-.cities:hover {
+.city:hover {
     color: #fff;
 }
 
