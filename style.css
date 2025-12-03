@@ -104,7 +104,13 @@ h1,h3 {
     border: 1px solid rgba(255, 255, 255, 0.18);
     z-index: 1;
     padding: 3em 2em;
-    /* overflow-Y: scroll; */
+    overflow-Y: scroll;
+    -ms-overflow-style: none; 
+    /* hideeeeeeeeee scroll bar blaaa */
+    scrollbar-width: none; 
+}
+.panel::-webkit-scrollbar{
+    display: none;
 }
 
 .panel form{
@@ -148,6 +154,36 @@ h1,h3 {
 
 .search::placeholder{
     color: #ccc;
+}
+
+.panel ul {
+    padding: 0 0 1em 0;
+    margin: 2em 0;
+    border-bottom: 1px #ccc solid;
+}
+
+.panel ul li {
+    color: #ccc;
+    margin: 2.5em 0;
+}
+
+.panel ul li h4 {
+    margin: 3em 0;
+}
+
+.cities {
+    display: block;
+    cursor: pointer;
+}
+
+.cities:hover {
+    color: #fff;
+}
+
+.details li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 
