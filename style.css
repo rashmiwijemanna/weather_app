@@ -22,7 +22,7 @@ h1,h3 {
     background-size: cover;
     position: relative;
     transition: 500ms;
-    opacity: 1;
+    opacity: 0;
     
 }
 
