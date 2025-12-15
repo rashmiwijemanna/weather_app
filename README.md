@@ -6,6 +6,8 @@
     <b>A weather experience, not just a forecast.</b><br>
     Built with vanilla JavaScript and modern CSS, focusing on performance, aesthetics, and user experience.
   </p>
+  
+
 
   <p>
     <a href="https://rashmiwijemanna.github.io/weather_app/">
@@ -13,7 +15,7 @@
     </a>
   </p>
 
-  <img src="https://via.placeholder.com/800x400.png?text=Add+Your+Screen+Recording+Here" alt="Project Preview" width="100%" />
+  
 
   <p>
     <img src="https://img.shields.io/badge/JavaScript-ES6+-F7DF1E?style=flat&logo=javascript&logoColor=black" />
