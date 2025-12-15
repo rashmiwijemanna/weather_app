@@ -15,11 +15,14 @@ const cities=document.querySelectorAll('.city');
 
 const video = document.querySelector(".videoPlayer")
 const forecastList = document.querySelector(".forecast-list");
+const toastBox = document.getElementById("toast-box");
 
 let cityInput= "London";
 
 let map;
 let marker;
+
+let toastTimeout;
 
 cities.forEach((city) => {
     city.addEventListener('click', (e) => {
@@ -27,6 +30,8 @@ cities.forEach((city) => {
 
        
         app.style.opacity = "0";
+        toastBox.innerHTML="";
+        clearTimeout(toastTimeout);
         setTimeout(fetchWeatherData, 500);
     })
     
@@ -44,6 +49,9 @@ form.addEventListener('submit', (e) => {
         search.value="";
 
         app.style.opacity = 0;
+        toastBox.innerHTML="";
+        clearTimeout(toastTimeout);
+        
         setTimeout(fetchWeatherData, 500);
     }
 
@@ -278,7 +286,7 @@ function getUserLocation(){
 }
 
 function showToast(msg, icon="fa-info-circle"){
-    const toastBox = document.getElementById("toast-box");
+    toastBox.innerHTML="";
 
     let toast = document.createElement("div");
     toast.classList.add("toast");
@@ -294,6 +302,7 @@ function showToast(msg, icon="fa-info-circle"){
 }
 
 function triggerLifestyleToast(data){
+    clearTimeout(toastTimeout);
     const humidity = data.current.humidity;
     const temp = data.current.temp_c;
     const uv=data.current.uv;
