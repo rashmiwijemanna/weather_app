@@ -182,13 +182,21 @@ function getUserLocation(){
                 fetchWeatherData();
                 app.style.opacity = "0";
                 setTimeout(() => app.style.opacity = "1", 500);
+
+            },
+            (error) => {
+                console.log("Location access denied or error. Loading default city.");
+                fetchWeatherData();
                 
             }
-        )
+        );
+    }else{
+        alert("Geolocation is not supported by your browser.");
+        fetchWeatherData();
     }
 }
 
-fetchWeatherData();
+getUserLocation();
 
 
 
