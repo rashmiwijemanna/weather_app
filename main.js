@@ -166,13 +166,44 @@ function fetchWeatherData(){
 
                 const iconUrl="https:" + day.day.condition.icon;
 
-                li.innerHTML = `
+              
+
+               
+
+                 let hourlyHTML = `<div class="hourly-container">`;
+
+                 day.hour.forEach(hour => {
+                    const hourTime= hour.time.split(" ")[1];
+                    const hourIcon = "https:" + hour.condition.icon;
+
+                    hourlyHTML += 
+                    `
+                    <div class="hourly-item">
+                        <span>${hourTime}</span>
+                        <img src="${hourIcon}" alt="icon"></img>
+                        <span>${Math.round(hour.temp_c)}&#176;</span>
+                    </div>
+                    `;
+                 });
+
+                 hourlyHTML += `<div/>`;
+                
+                 li.innerHTML =  `
+                 <div style="display:flex; justify-content:space-between; align-items:center; width:100%;">
                 <span class="forecast-day">${dayName}</span>
                 <img src="${iconUrl}" class="forecast-icon" alt="icon">
-                 <span class="forecast-temp">${Math.round(day.day.avgtemp_c)}&#176;</span>   
+                 <span class="forecast-temp">${Math.round(day.day.maxtemp_c)}&#176;</span>   
+                 </div>
+                 ${hourlyHTML}
                  `;
-                 forecastList.appendChild(li);
-                
+
+                 li.addEventListener("click", () => {
+                    li.classList.toggle("active");
+                 });
+
+                 forecastList.appendChild(li)
+
+                 
 
             });
 

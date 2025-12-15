@@ -272,24 +272,27 @@ h1,h3 {
     font-weight: bold;
 }
 
-.hourly-contrainer {
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.5s ease-out;
-
-    display: flex;
-    overflow-x: auto;
+.hourly-container {
+    display: none; 
+    
+    flex-direction: row; 
+    flex-wrap: nowrap;   
+    overflow-x: auto;    
+    
     gap: 15px;
-    margin-top: 0;
-    margin-bottom: 5px;
     width: 100%;
+    margin-top: 15px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    
 }
 
-.hourly-contrainer::-webkit-scrollbar {
+.hourly-container::-webkit-scrollbar {
     height: 5px;
 }
 
-.hourly-contrainer::-webkit-scrollbar-thumb{
+.hourly-container::-webkit-scrollbar-thumb{
     background: rgba(255, 255, 255, 0.3);
     border-radius: 10px;
 }
@@ -313,11 +316,9 @@ h1,h3 {
     cursor: pointer;
 }
 
-.forecast-card.active .hourly-contrainer{
-    max-height: 150px;
-    margin-top: 15px;
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
-    padding-top: 10px;
+.forecast-card.active .hourly-container{
+    display: flex; 
+    animation: fadeIn 0.5s;
 }
 
 
