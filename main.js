@@ -18,6 +18,9 @@ const forecastList = document.querySelector(".forecast-list");
 
 let cityInput= "London";
 
+let map;
+let marker;
+
 cities.forEach((city) => {
     city.addEventListener('click', (e) => {
         cityInput = e.target.textContent;
@@ -50,7 +53,7 @@ form.addEventListener('submit', (e) => {
 
 function dayOfTheWeek(day, month, year){
     const weekday = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
-    return weekday[new Date(`${day}/${month}/${year}`).getDay()];
+    return weekday[new Date(year, month-1,day).getDay()];
 };
 
 function fetchWeatherData(){
@@ -154,6 +157,22 @@ function fetchWeatherData(){
                 }
 
             
+            }
+            const lat= data.location.lat;
+            const lon=data.location.lon;
+
+            if(!map){
+                map=L.map('map').setView([lat, lon], 10);
+
+                L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png',{
+                    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
+                    subdomains: 'abcd',
+                    maxZoom: 19
+                }).addTo(map);
+                marker = L.marker([lat, lon]).addTo(map);
+            }else{
+                map.setView([lat, lon], 10);
+                marker.setLatLng([lat, lon]);
             }
 
             forecastList.innerHTML = "";

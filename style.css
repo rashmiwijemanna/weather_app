@@ -182,6 +182,9 @@ h1,h3 {
     margin: 3em 0;
 }
 
+
+
+
 .city {
     display: block;
     cursor: pointer;
@@ -319,6 +322,29 @@ h1,h3 {
 .forecast-card.active .hourly-container{
     display: flex; 
     animation: fadeIn 0.5s;
+}
+
+#map {
+    width: 100%;
+    height: 200px;
+    border-radius: 10px;
+    margin-top: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+
+    z-index: 1;
+}
+
+.leaflet-container{
+    background: rgba(0, 0, 0, 0.3);
+}
+
+h4{
+    font-weight: 500;
+}
+ .map-section {
+    border-top: 1px solid rgba(255, 255, 255, 0.921);
+    padding-top: 10px;
+    width: 100%;
 }
 
 
