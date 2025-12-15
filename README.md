@@ -17,12 +17,15 @@
 
   
 
-  <p>
-    <img src="https://img.shields.io/badge/JavaScript-ES6+-F7DF1E?style=flat&logo=javascript&logoColor=black" />
-    <img src="https://img.shields.io/badge/CSS3-Glassmorphism-1572B6?style=flat&logo=css3&logoColor=white" />
-    <img src="https://img.shields.io/badge/API-WeatherAPI.com-orange?style=flat" />
-    <img src="https://img.shields.io/badge/Map-Leaflet.js-199900?style=flat&logo=leaflet" />
-  </p>
+ <div align="center">
+  <img src="https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white" />
+  <img src="https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white" />
+  <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black" />
+  <br>
+  <img src="https://img.shields.io/badge/Leaflet-199900?style=for-the-badge&logo=leaflet&logoColor=white" />
+  <img src="https://img.shields.io/badge/Font_Awesome-528DD7?style=for-the-badge&logo=font-awesome&logoColor=white" />
+  <img src="https://img.shields.io/badge/WeatherAPI-orange?style=for-the-badge" />
+</div>
 </div>
 
 ---
@@ -62,6 +65,14 @@ Professional problem-solving was a core part of this build:
     ```
 3.  **Launch:**
     Simply open `index.html` in your favorite browser (or use the Live Server extension in VS Code).
+
+ ## 📚 Resources & Credits
+
+* **Icons:** [FontAwesome](https://fontawesome.com/) (Free Tier) - Used for weather conditions and UI elements.
+* **Fonts:** [Google Fonts](https://fonts.google.com/) - (Poppins / Roboto).
+* **Map:** [Leaflet.js](https://leafletjs.com/) & [OpenStreetMap](https://www.openstreetmap.org/).
+* **Data API:** [WeatherAPI.com](https://www.weatherapi.com/) - Provided real-time weather and forecast data.
+* **Video Backgrounds:** Sourced from royalty-free platforms (Pexels/Pixabay).
 
 ## 🔮 Future Roadmap
 
