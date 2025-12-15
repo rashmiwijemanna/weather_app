@@ -272,6 +272,53 @@ h1,h3 {
     font-weight: bold;
 }
 
+.hourly-contrainer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease-out;
+
+    display: flex;
+    overflow-x: auto;
+    gap: 15px;
+    margin-top: 0;
+    margin-bottom: 5px;
+    width: 100%;
+}
+
+.hourly-contrainer::-webkit-scrollbar {
+    height: 5px;
+}
+
+.hourly-contrainer::-webkit-scrollbar-thumb{
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 10px;
+}
+
+.hourly-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 60px;
+    font-size: 0.8rem;
+    color: #eee;
+}
+
+.hourly-item img {
+    width: 25px;
+    margin: 5px 0;
+}
+
+.forecast-card {
+    flex-wrap: wrap;
+    cursor: pointer;
+}
+
+.forecast-card.active .hourly-contrainer{
+    max-height: 150px;
+    margin-top: 15px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 10px;
+}
 
 
 
