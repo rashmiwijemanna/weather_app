@@ -226,7 +226,17 @@ function fetchWeatherData(){
 
             });
 
+            video.onloadeddata = () => {
+                app.style.opacity = "1";
+                triggerLifestyleToast(data);
+            }
+
+           setTimeout(() => {
+            if(app.style.opacity== "0"){
             app.style.opacity = "1";
+            triggerLifestyleToast(data);
+            }
+           },2000)
            
         
     
@@ -281,6 +291,48 @@ function showToast(msg, icon="fa-info-circle"){
         toast.remove();
 
     }, 5500);
+}
+
+function triggerLifestyleToast(data){
+    const humidity = data.current.humidity;
+    const temp = data.current.temp_c;
+    const uv=data.current.uv;
+    const wind=data.current.wind_kph;
+
+    setTimeout(() => {
+        const code = data.current.condition.code;
+        const rainCodes= [1063, 1180, 1183, 1186, 1189, 1192, 1195, 1240, 1243, 1273];
+        if(rainCodes.includes(code)){
+            showToast("Rain expected. Dont forget an ambrella!", "fa-umbrella");
+            return;
+        }
+
+        if(humidity >70){
+            showToast("High Humidity! Use anti-frizz serum.", "fa-droplet");
+            return;
+        }
+
+        if(uv > 5){
+            showToast("High UV Index! Wear SPF 50.", "fa-sun")
+            return;
+
+        
+
+        }
+
+        if(wind >20){
+            showToast("It's windy! Tie your hair back.", "fa-wind");
+            return;
+        }
+
+        if(temp>20){
+            showToast("Beautiful dayy! Perfect for a walk.", "fa-person-walking");
+
+        }else{
+            showToast("Stay cozy! It is a bit chilly.","fa-mug-hot")
+        }
+    }, 2000)
+
 }
 
 
