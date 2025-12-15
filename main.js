@@ -14,6 +14,7 @@ const btn=document.querySelector('.submit');
 const cities=document.querySelectorAll('.city');
 
 const video = document.querySelector(".videoPlayer")
+const forecastList = document.querySelector(".forecast-list");
 
 let cityInput= "London";
 
@@ -53,7 +54,7 @@ function dayOfTheWeek(day, month, year){
 };
 
 function fetchWeatherData(){
-    fetch(`http://api.weatherapi.com/v1/current.json?key=7968f0118cec4306a24144801252506&q=${cityInput}`)
+    fetch(`http://api.weatherapi.com/v1/forecast.json?key=7968f0118cec4306a24144801252506&q=${cityInput}&days=3`)
     .then(response => response.json() )
     .then(data => {
         console.log(data);
@@ -154,6 +155,26 @@ function fetchWeatherData(){
 
             
             }
+
+            forecastList.innerHTML = "";
+            data.forecast.forecastday.forEach(day => {
+                const li=document.createElement("li");
+                li.classList.add("forecast-card");
+
+                const dateObj= new Date(day.date);
+                const dayName = dateObj.toLocaleDateString('en-US', { weekday: 'short'});
+
+                const iconUrl="https:" + day.day.condition.icon;
+
+                li.innerHTML = `
+                <span class="forecast-day">${dayName}</span>
+                <img src="${iconUrl}" class="forecast-icon" alt="icon">
+                 <span class="forecast-temp">${Math.round(day.day.avgtemp_c)}&#176;</span>   
+                 `;
+                 forecastList.appendChild(li);
+                
+
+            });
 
             app.style.opacity = "1";
            
