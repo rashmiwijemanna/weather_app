@@ -170,6 +170,24 @@ function fetchWeatherData(){
     })
 }
 
+function getUserLocation(){
+    if(navigator.geolocation){
+        navigator.geolocation.getCurrentPosition(
+            (position) => {
+                const lat = position.coords.latitude;
+                const lon = position.coords.longitude;
+
+                cityInput = `${lat},${lon}`;
+
+                fetchWeatherData();
+                app.style.opacity = "0";
+                setTimeout(() => app.style.opacity = "1", 500);
+                
+            }
+        )
+    }
+}
+
 fetchWeatherData();
 
 
