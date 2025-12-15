@@ -267,6 +267,24 @@ function getUserLocation(){
     }
 }
 
+function showToast(msg, icon="fa-info-circle"){
+    const toastBox = document.getElementById("toast-box");
+
+    let toast = document.createElement("div");
+    toast.classList.add("toast");
+
+    toast.innerHTML = `<li class="fa-solid ${icon}"></li> <span>${msg}</span>`;
+
+    toastBox.appendChild(toast)
+
+    setTimeout(() => {
+        toast.remove();
+
+    }, 5500);
+}
+
+
+
 getUserLocation();
 
 
